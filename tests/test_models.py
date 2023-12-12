@@ -100,7 +100,7 @@ def test_daily_std():
 
 def test_daily_std_values():
     from inflammation.models import daily_std
-
+"""This is a test function with positive integers for the std-dev function """
     test_input = np.array([[5, 3],
                            [6, 6],
                            [7, 9]])

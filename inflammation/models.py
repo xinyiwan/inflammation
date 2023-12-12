@@ -47,3 +47,11 @@ def daily_min(data):
     """
     return np.min(data, axis=0)
 
+def daily_std(data):
+    """Calculate the daily standard deviation of a 2D inflammation data array.
+
+    :param data: A 2D data array with inflammation data 
+        (each row contains measurements for a single patient across all days)
+    :returns: An array of standard deviation of measurements for each day.
+    """
+    return np.std(data, axis=0)

@@ -27,7 +27,9 @@ def main(args):
             }
 
         views.visualize(view_data)
-        
+    
+        if args.text == True:
+            views.visualize_text(view_data)        
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
@@ -38,6 +40,13 @@ if __name__ == "__main__":
         'infiles',
         nargs = '+',
         help = 'Input CSV(s) containing inflammation series for each patient'
+        )
+    
+    parser.add_argument(
+        '--text',
+        default = True,
+        type = bool,
+        help = 'Display the analysis in textual representation'
         )
 
     args = parser.parse_args()

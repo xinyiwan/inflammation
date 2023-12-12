@@ -85,3 +85,14 @@ def test_daily_min(test, expected):
     """Test mean function works for array of zeroes, negative integers, and a mix of positive/negative integers."""
     from inflammation.models import daily_min
     npt.assert_array_equal(daily_min(test), expected)
+
+def test_daily_std():
+    """Test std-dev function for zeros"""
+    from inflammation.models import daily_std
+    
+    test_input = np.array([[0, 0],
+                           [0, 0],
+                           [0, 0]])
+    test_result = np.array([0, 0])
+
+    npt.assert_array_equal(daily_std(test_input), test_result)

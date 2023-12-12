@@ -96,3 +96,14 @@ def test_daily_std():
     test_result = np.array([0, 0])
 
     npt.assert_array_equal(daily_std(test_input), test_result)
+
+
+def test_daily_std_values():
+    from inflammation.models import daily_std
+
+    test_input = np.array([[5, 3],
+                           [6, 6],
+                           [7, 9]])
+    test_result = np.array([0.81, 2.44])
+
+    npt.assert_array_almost_equal(daily_std(test_input), test_result, decimal=2)

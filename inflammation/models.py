@@ -8,6 +8,7 @@ and each column represents a single day across all patients.
 """
 
 import numpy as np
+from functools import reduce
 
 
 def load_csv(filename):
@@ -47,3 +48,13 @@ def daily_min(data):
     """
     return np.min(data, axis=0)
 
+def daily_above_threshold(data, n_row, threshold):
+    """Count how many days a given patient's inflammation exceeds a given threshold.
+
+    :param patient_num: The patient row number
+    :param data: A 2D data array with inflammation data
+    :param threshold: An inflammation threshold to check each daily value against
+    :returns: An integer representing the number of days a patient's inflammation is over a given threshold
+    """
+    above_threshold = map(lambda x: x > threshold, data[n_row])
+    return reduce(lambda a, b: a + 1 if b else a, above_threshold, 0)
